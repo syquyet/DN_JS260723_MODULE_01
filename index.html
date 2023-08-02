@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>session-03-form</title>
+    <style>
+      header {
+        margin: 30px 0;
+        color: red;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <header><h1>session-03-form</h1></header>
+    <main>
+      <section>
+        <h3>một số type của input</h3>
+        <p>form của một sản phẩm</p>
+        <form action="">
+          <input type="text" placeholder="nhập tên của bạn" />
+          <br />
+          <br />
+
+          <input type="text" placeholder="nhập sđt" />
+          <br />
+          <br />
+
+          <input type="text" placeholder="nhập hóa đơn giao hàng" />
+          <br />
+          <br />
+          <input type="date" />
+          <br />
+          <br />
+          <p>bạn muốn in hóa đơn ko</p>
+          <br />
+          <br />
+          <input type="radio" name="invoive" id="invoice-y" />
+          <label for="invoice-y">yes</label>
+          <input type="radio" name="invoive" id="invoice-n" />
+          <label for="invoice-n">no</label>
+          <br />
+          <br />
+          <input type="submit" value="gửi" />
+          <br /><br /><br />
+          <p>lựa chọn một số sản phảm bạn muốn mua</p>
+          <input type="checkbox" name="produc-tv" id="produc-tv" />
+          <label for="produc-tv">tv</label>
+          <input type="checkbox" name="produc-phone" id="produc-phone" />
+          <label for="produc-phone">điện thoại</label>
+          <input type="checkbox" name="produc-tv" id="" />
+          <label for="produc-tv"></label>
+          <input type="checkbox" name="produc-tv" id="" />
+          <label for="produc-tv"></label>
+          <input type="submit" value="gửi" />
+          <section>
+            <h3>google seach</h3>
+            <form action="http://google.com/seach">
+              <input
+                type="text"
+                placeholder="nhập thông tin cần tìm"
+                name=""
+                required
+              />
+              <input type="submit" value="tìm" />
+            </form>
+          </section>
+        </form>
+      </section>
+      <section>
+        <input type="number" max="5" min="1" value="2" />
+      </section>
+      <section>
+        <h3>thẻ select và option</h3>
+        <form action="">
+          <select name="course" id="">
+            <option value="">html</option>
+            <option value="">css</option>
+            <option value="">js</option>
+            <option value="">dg</option>
+          </select>
+        </form>
+      </section>
+      <section>
+        <h3>thẻ textarea tạo form nhập nhiều thông tin</h3>
+        <textarea name="text-textarea" id="" cols="30" rows="10"></textarea>
+      </section>
+      <section>
+        <h3>type file</h3>
+        <input type="file" name="file-img" id="" />
+      </section>
+      <section>
+        <h3>Google search</h3>
+        <form action="https://google.com/search">
+          <input
+            type="text"
+            placeholder="Nhập thông tin cần tìm"
+            name="q"
+            required
+          />
+          <input type="submit" value="Tìm" />
+        </form>
+      </section>
+    </main>
+  </body>
+</html>

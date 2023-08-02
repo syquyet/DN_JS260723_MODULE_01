@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>bai-tap-02-tạo-form</title>
+    <style>
+      label {
+        color: orange;
+      }
+      p {
+        color: blue;
+      }
+      h1 {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <form action="">
+        <caption>
+          <h1>SỞ THÍCH CỦA BẠN</h1>
+        </caption>
+        <table>
+          <tr>
+            <td>
+              <p>Họ và tên</p>
+            </td>
+            <td colspan="3"><input type="text" /></td>
+          </tr>
+          <tr>
+            <td>
+              <p>Email</p>
+            </td>
+            <td colspan="3">
+              <input type="email" name="email" />
+            </td>
+          </tr>
+          <tr>
+            <td rowspan="3">
+              <p>Sở thích</p>
+            </td>
+            <td>
+              <input
+                type="checkbox"
+                name="sothich"
+                id="sothich"
+                value="sport"
+              />
+              <label for="sothich">thể thao</label>
+            </td>
+            <td>
+              <input
+                type="checkbox"
+                name="sothich1"
+                id="sothich1"
+                value="music"
+              />
+              <label for="sothich1">Âm nhạc</label>
+            </td>
+            <td>
+              <input
+                type="checkbox"
+                name="sothich2"
+                id="sothich2"
+                value="book"
+              />
+              <label for="sothich2">Đọc sách</label>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type="checkbox" name="sothich3" id="sothich3" />
+              <label for="sothich3">Lướt web</label>
+            </td>
+            <td>
+              <input type="checkbox" name="sothich4" id="sothich4" />
+              <label for="sothich4">Chơi game</label>
+            </td>
+            <td>
+              <input type="checkbox" name="sothich5" id="sothich5" />
+              <label for="sothich5">Điện ảnh</label>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type="checkbox" name="sothich6" id="sothich6" />
+              <label for="sothich6">Du lịch</label>
+            </td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
+              <input type="submit" value="Gửi thông tin" />
+            </td>
+            <td>
+              <input type="reset" value="Nhập lại" />
+            </td>
+            <td></td>
+          </tr>
+        </table>
+      </form>
+    </main>
+  </body>
+</html>
