@@ -1,0 +1,92 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  width: 1000px;
+  border: 1px solid black;
+  margin: 100px 100px;
+}
+header {
+  background-color: rgb(13, 83, 83);
+  height: 200px;
+}
+.cv-left {
+  width: 49%;
+  display: inline-block;
+  background-color: rgb(193, 215, 208);
+  padding: 20px 30px 20px 0;
+}
+
+.cv-left * {
+  padding: 7px 10px 7px 10px;
+}
+.cv-right {
+  width: 50%;
+  display: inline-block;
+
+  padding: 20px 50px;
+}
+.cv-right p{
+  padding:0 0 0 30px;
+}
+
+img {
+  height: 150px;
+  border-radius: 50%;
+  width: 20%;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 30px 50px;
+  border: 8px solid red;
+}
+header div {
+  width: 49%;
+  display: inline-block;
+  vertical-align: middle;
+  color: white;
+}
+
+
+i {
+  font-size: 20px;
+ 
+}
+.cv-right i {
+  font-size: 25px;
+}
+.cv-left > section > div {
+  background-color: rgba(0, 0, 0, 0.738);
+  color: aliceblue;
+  border-radius: 0 20px 20px 0;
+  margin-bottom: 10px;
+
+}
+.cv-left p{
+  padding: 7px 30px 7px 30px;
+}
+.cv-right > section > div > span {
+  background-color: rgba(0, 0, 0, 0.738);
+  color: aliceblue;
+  padding: 10px 75px 10px 75px;
+  border-radius: 20px;
+}
+.cv-right > section > div {
+  margin-bottom: 6px;
+}
+
+
+.colum {
+  width: 35px;
+  height: 50px;
+  background-color: rgb(213, 162, 21);
+  display:inline-block;
+  margin: 20px;
+  color: aliceblue;
+}
+.cv-right > section > div > div {
+  width: 20%;
+  display: inline-block;
+
+}
