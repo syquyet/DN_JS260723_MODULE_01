@@ -1,0 +1,28 @@
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+
+}
+header{
+  background-color: rgb(62, 39, 39);
+  color: aliceblue;
+  padding: 5px 30px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.button{
+  display: flex;
+  
+}
+.img{
+  border: 1px solid red;
+ margin: 0 30px;
+ 
+}
+.banner {
+  text-align: center;
+  padding: 60px 0;
+  width: 500px;
+}
