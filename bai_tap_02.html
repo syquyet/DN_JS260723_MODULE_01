@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+
+      main {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px 20px;
+      }
+     img{
+        padding: 20px 20px;
+        width: 100%;
+        height: 100%;
+     }
+    input{
+        width: 50%;
+    }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Album Ảnh</h1>
+      <hr />
+    </header>
+    <nav>
+      <input type="text"  id="input"/>
+      <button onclick="lab_03()">add</button>
+    </nav>
+    <main class="album-image">
+      <img
+        src="https://cdn.pixabay.com/photo/2023/08/11/10/13/goat-8183257_1280.png"
+        alt=""
+       
+      />
+      <img
+        src="https://cdn.pixabay.com/photo/2023/08/11/10/13/goat-8183257_1280.png"
+        alt=""
+        
+      />
+      <img
+        src="https://cdn.pixabay.com/photo/2023/08/11/10/13/goat-8183257_1280.png"
+        alt=""
+        
+      />
+      <img
+        src="https://cdn.pixabay.com/photo/2023/08/11/10/13/goat-8183257_1280.png"
+        alt=""
+       
+      />
+    </main>
+  </body>
+  <script src="/bat_tap_02.js"></script>
+</html>
