@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        table,
+        tr,
+        td {
+          border-collapse: collapse;
+        }
+        td {
+          padding: 10px 20px;
+        }
+        tr {
+          border: 1px solid rgb(175, 175, 175);
+        }
+      </style>
+  </head>
+  <body>
+    <h1>Bộ Sưu Tập</h1>
+    <table>
+      <caption>
+        Danh sách sản phẩm
+      </caption>
+      <thead>
+        <tr>
+          <td>stt</td>
+          <td>id</td>
+          <td>Tên sản phẩm</td>
+          <td>giá sản phẩm</td>
+          <td>số lượng sản phẩm</td>
+          <td>Hành động</td>
+        </tr>
+      </thead>
+      <tbody id="store"></tbody>
+    </table>
+<hr>
+<table>
+    <caption>
+      sản phẩm trong giỏ hàng
+    </caption>
+    <thead>
+      <tr>
+        <td>stt</td>
+        <td>id</td>
+        <td>Tên sản phẩm</td>
+        <td>giá sản phẩm</td>
+        <td>số lượng sản phẩm</td>
+        <td>Hành động</td>
+      </tr>
+    </thead>
+    <tbody id="cart"></tbody>
+  </table>
+
+  </body>
+  <script src="/bt_home.js"></script>
+  
+</html>
+
+
+<!-- 
+    
+    function handleBuy(id) {
+      let course;
+      for (const item of store) {
+        if (id === item.id) {
+          item.slot--;
+          course = item;
+        }
+      }
+
+      let isExist = false;
+
+      for (const item of carts) {
+        if (id == item.id) {
+          item.quantity++;
+          isExist = true;
+        }
+      }
+
+      if (!isExist) {
+        const newCourse = {
+          id: course.id,
+          name: course.name,
+          price: course.price,
+          quantity: 1,
+        };
+        carts.push(newCourse);
+      }
+      console.log(carts);
+      console.log(store);
+
+      renderCart(carts);
+      renderStore(store);
+    }
+
+    function handleReturn(id) {
+      const quantity = Number(prompt("Nhập số lượng muốn trả"));
+
+      for (let index = 0; index < carts.length; index++) {
+        const item = carts[index];
+        if (id == item.id) {
+          if (item.quantity < quantity) {
+            alert("Chỉ có thể trả tối đa " + item.quantity + " sản phẩm");
+            return;
+          }
+          item.quantity -= quantity;
+          if (item.quantity === 0) {
+            carts.splice(index, 1);
+          }
+        }
+
+        for (const item of store) {
+          if (id === item.id) {
+            item.slot += quantity;
+          }
+        }
+
+        renderCart(carts);
+        renderStore(store);
+        console.log(store);
+      }
+    } -->
