@@ -53,32 +53,31 @@ function lab_03() {
   console.log(result);
 }
 
-// nhap vao chuoi neeus co kis tuwj trung nhau thi xoa
+// nhap vao chuoi neu co ki tu trung nhau thi xoa
 function lab_04() {
   const string = prompt("nhap vao chuoi ki tu");
-  const arrayString = string.split(",");
+  const arrayString = string.split("");
   console.log(arrayString);
   for (let i = 0; i < arrayString.length; i++) {
     for (let j = i + 1; j < arrayString.length; j++) {
       if (arrayString[i] === arrayString[j]) {
         arrayString.splice(j, 1);
         j--;
-        console.log(arrayString);
       }
     }
   }
   console.log(arrayString);
 }
-//nhap vao chuoi so sap xe p tu nho dden lon
+//nhap vao chuoi so sap xe p tu nho den lon
 function lab_05() {
   const string_1 = prompt("nhap vao chuoi so ");
-  const arrayNumber = string_1.split(",", 10);
+  const arrayNumber = string_1.split("");
   console.log(arrayNumber);
   const arrayNew = [];
   for (let j = 0; j < arrayNumber.length; j++) {
     let index = 0;
     let min = Number(arrayNumber[0]);
-    for (let i = 0; i < arrayNumber.length; i++) {
+    for (let i =j+1; i < arrayNumber.length; i++) {
       const number = Number(arrayNumber[i]);
       if (min > number) {
         min = number;
@@ -90,6 +89,5 @@ function lab_05() {
     j--;
     console.log(arrayNumber);
     console.log(arrayNew);
-    
   }
 }
