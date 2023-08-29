@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>projec_đăng nhập</title>
+    <style>
+      form {
+        width: 400px;
+        border-radius: 10px;
+        margin: auto;
+        background-color: transparent;
+        backdrop-filter: blur(5px) brightness(60%);
+      }
+
+      form * {
+        padding: 10px;
+        margin: 10px 20px;
+      }
+      form input {
+        border-radius: 10px;
+        border: none;
+        outline: none;
+        width: 80%;
+      }
+
+      form button:hover {
+        opacity: 0.7;
+      }
+      form button {
+        width: 30%;
+        background-color: rgb(191, 88, 88);
+
+        border-radius: 20px;
+        border: hidden;
+        transition: 0.25s;
+      }
+      #btn-form-login {
+        text-align: center;
+      }
+      form h2 {
+        padding-top: 20px;
+        text-align: center;
+        color: rgb(191, 88, 88);
+      }
+      #navigation {
+        text-align: center;
+        padding-bottom: 40px;
+      }
+      form hr {
+        padding: 0;
+      }
+      .error {
+        color: rgb(191, 88, 88);
+        padding: 0;
+        margin: 0 0 0 30px;
+        font-size: 0.8;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <form action="">
+        <h2>Đăng nhập</h2>
+        <hr />
+        <label for="email">Email:</label>
+        <input id="email" type="email" placeholder="Email" />
+        <p class="error" id="error-email"></p>
+        <label for="password">Mật khẩu:</label>
+        <input id="password" type="password" placeholder="Mật khẩu" />
+        <p class="error" id="error-password"></p>
+        <div id="btn-form-login"><button>Đăng nhập</button></div>
+        <p id="navigation">
+          Bạn chưa đăng ký tài khoản? <a href="/bt_dangky.html">đăng ký</a>
+        </p>
+      </form>
+    </main>
+  </body>
+  <script>
+    const userLogins = [];
+    const formElement = document.querySelector("form");
+    const emailElement = document.querySelector("#email");
+    const passwordElement = document.querySelector("#password");
+    formElement.addEventListener("submit", (e) => {
+      // Chặn action của e
+      e.preventDefault();
+      // B1 lấy user từ form
+      const user = getUser();
+      console.log(user);
+      //  B2 check lỗi user
+      const error = checkError(user);
+      readerError(error);
+      if (error.isError) {
+        return;
+      }
+      // B3 tải userlogin từ local
+
+      const userLoginsDB = JSON.parse(localStorage.getItem("userLogins")) || [];
+      console.log(userLoginsDB);
+      // B3 kiểm tra email đã tồn tại
+      let isExist = false;
+      for (const userLogin of userLoginsDB) {
+        if (userLogin.email === user.email) {
+          isExist = true;
+          break;
+        }
+      }
+      if (!isExist) {
+        delete user.password;
+        userLoginsDB.push(user);
+        localStorage.setItem("userLogins", JSON.stringify(userLoginsDB));
+      } else {
+        error.isError = true;
+        error.msgEmail = "*Tài khoản đã tồn tại vui lòng đăng nhập lại";
+        readerError(error);
+      }
+    });
+    function getUser() {
+      return {
+        email: emailElement.value,
+        password: passwordElement.value,
+      };
+    }
+    function checkError(user) {
+      const error = {
+        isError: false,
+        msgEmail: "",
+        msgPassword: "",
+      };
+      const validRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+      if (!user.email.match(validRegex)) {
+        error.isError = true;
+        error.msgEmail = "*Nhập đúng định dạng email";
+      }
+      if (!user.password) {
+        error.isError = true;
+        error.msgPassword = "*Mật khẩu không được để trống";
+      }
+      return error;
+    }
+    function readerError(error) {
+      const errorEmailElement = document.querySelector("#error-email");
+      const errorPasswordElement = document.querySelector("#error-password");
+      errorEmailElement.textContent = error.msgEmail;
+      errorPasswordElement.textContent = error.msgPassword;
+    }
+  </script>
+</html>

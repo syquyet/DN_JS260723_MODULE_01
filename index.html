@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <main>
+      <fieldset>
+        <legend>example</legend>
+        <h3>gửi dữ liệu lên local</h3>
+        <button onclick="ex_01()">click</button>
+        <p id="name"></p>
+      </fieldset>
+      <fieldset>
+        <legend>example</legend>
+        <h3>gửi dữ liệu lên local</h3>
+        <input id="input-user" type="text"  placeholder="nhập tên.."/>
+        <button id="btn" onclick="ex_02()">add</button>
+        <p id="readername"></p>
+        
+      </fieldset>
+      <fieldset>
+        <legend>example</legend>
+        <h3>lưu danh sách cầu thủ vào local</h3>
+        <input id="input" type="text"  placeholder="nhập tên cầu thủ"/>
+        <button id="btn-add" onclick="add()">thêm cầu thủ</button>
+        <button onclick="delete_all()"> xóa tất cả</button>
+        <div id="reader-player">
+          
+        </div>
+   
+        
+      </fieldset>
+    </main>
+  </body>
+  <script src="/script.js"></script>
+</html>
