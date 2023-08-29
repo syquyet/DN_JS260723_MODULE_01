@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gallery</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    .main {
+      width: 100%;
+      height: 80%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .main img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .footer {
+      width: 100%;
+      height: 20%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .footer button {
+      width: 50px;
+      height: 100px;
+      margin: -15px 10px 0;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      background-color: #000;
+      color: #fff;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .footer button:hover {
+      background-color: #fff;
+      color: #000;
+    }
+    .listImg {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+        overflow-x: auto; /* hiển thị thanh cuộn ngang */
+    }
+    .listImg img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      margin: 0 10px;
+      cursor: pointer;
+    }
+    .listImg img.active {
+      border: 2px solid red;
+      opacity: 0.5;
+    }
+
+    /* button ở 2 đầu footer và nổi lên trên footer */
+    .footer button:first-child {
+      position: absolute;
+      left: 0;
+      z-index: 1;
+    }
+    .footer button:last-child {
+      position: absolute;
+      right: 0;
+      z-index: 1;
+    }
+
+  </style>
+  <body>
+    <div class="container">
+      <div class="main">
+        <img
+          src="https://i.pinimg.com/originals/0a/0b/9a/0a0b9a4b2b2b0b6b0b2b0b0b0b0b0b0b.jpg"
+          alt=""
+        />
+      </div>
+      <div class="footer">
+        <button>&#60;</button>
+        <div class="listImg">
+          <!-- <img src="https://i.pinimg.com/originals/0a/0b/9a/0a0b9a4b2b2b0b6b0b2b0b0b0b0b0b0b.jpg" alt="" > -->
+        </div>
+        <button>&#62;</button>
+      </div>
+    </div>
+  </body>
+  <script>
+    const imgList = [
+      "https://media-cdn-v2.laodong.vn/Storage/NewsPortal/2021/5/26/913299/Ngan-Ha25.jpg",
+      "https://znews-photo.zingcdn.me/w660/Uploaded/mdf_eioxrd/2021_07_06/2.jpg",
+      "https://cdn.baogiaothong.vn/upload/2-2022/images/2022-05-25/2-1653445668-926-width740height481.jpg",
+      "https://thuthuatnhanh.com/wp-content/uploads/2021/11/hinh-anh-chill-dep.jpg",
+      "https://media-cdn-v2.laodong.vn/Storage/NewsPortal/2021/5/26/913299/Ngan-Ha25.jpg",
+      "https://znews-photo.zingcdn.me/w660/Uploaded/mdf_eioxrd/2021_07_06/2.jpg",
+      "https://cdn.baogiaothong.vn/upload/2-2022/images/2022-05-25/2-1653445668-926-width740height481.jpg",
+      "https://thuthuatnhanh.com/wp-content/uploads/2021/11/hinh-anh-chill-dep.jpg",
+      "https://media-cdn-v2.laodong.vn/Storage/NewsPortal/2021/5/26/913299/Ngan-Ha25.jpg",
+      "https://znews-photo.zingcdn.me/w660/Uploaded/mdf_eioxrd/2021_07_06/2.jpg",
+      "https://cdn.baogiaothong.vn/upload/2-2022/images/2022-05-25/2-1653445668-926-width740height481.jpg",
+      "https://thuthuatnhanh.com/wp-content/uploads/2021/11/hinh-anh-chill-dep.jpg",
+      "https://media-cdn-v2.laodong.vn/Storage/NewsPortal/2021/5/26/913299/Ngan-Ha25.jpg",
+      "https://znews-photo.zingcdn.me/w660/Uploaded/mdf_eioxrd/2021_07_06/2.jpg",
+      "https://cdn.baogiaothong.vn/upload/2-2022/images/2022-05-25/2-1653445668-926-width740height481.jpg",
+      "https://thuthuatnhanh.com/wp-content/uploads/2021/11/hinh-anh-chill-dep.jpg",
+      
+    ];
+    const main = document.querySelector(".main img");
+    const listImg = document.querySelector(".listImg");
+    const btnPrev = document.querySelector(".footer button:first-child");
+    const btnNext = document.querySelector(".footer button:last-child");
+    // show ảnh trong footer
+    imgList.forEach((img, index) => {
+      const imgTag = document.createElement("img");
+      imgTag.src = img;
+      imgTag.alt = `image-${index}`;
+      imgTag.classList.add("image");
+      if (index === 0) {
+        imgTag.classList.add("active");
+      }
+      listImg.appendChild(imgTag);
+    });
+
+    // show ảnh đầu tiên lên trang chủ
+    const imgActive = document.querySelector(".listImg img.active");
+    main.src = imgActive.src;
+
+    // xử lý sự kiện click vào ảnh trong footer
+    const listImgTag = document.querySelectorAll(".listImg img");
+    listImgTag.forEach((img, index) => {
+      img.addEventListener("click", () => {
+        const imgActive = document.querySelector(".listImg img.active");
+        imgActive.classList.remove("active");
+        img.classList.add("active");
+        main.src = img.src;
+      });
+    });
+
+    // handle click button prev, if img is first then return last img
+    btnPrev.addEventListener("click", () => {
+        const imgActive = document.querySelector(".listImg img.active");
+        const imgPrev = imgActive.previousElementSibling;
+        if (imgPrev) {
+            imgActive.classList.remove("active");
+            imgPrev.classList.add("active");
+            main.src = imgPrev.src;
+        } else {
+            const imgActive = document.querySelector(".listImg img.active");
+            const imgLast = imgActive.parentElement.lastElementChild;
+            imgActive.classList.remove("active");
+            imgLast.classList.add("active");
+            main.src = imgLast.src;
+        }
+    });
+
+    // handle click button next, if img is last then return first img
+    btnNext.addEventListener("click", () => {
+        const imgActive = document.querySelector(".listImg img.active");
+        const imgNext = imgActive.nextElementSibling;
+        if (imgNext) {
+            imgActive.classList.remove("active");
+            imgNext.classList.add("active");
+            main.src = imgNext.src;
+        } else {
+            const imgActive = document.querySelector(".listImg img.active");
+            const imgFirst = imgActive.parentElement.firstElementChild;
+            imgActive.classList.remove("active");
+            imgFirst.classList.add("active");
+            main.src = imgFirst.src;
+        }
+    });
+
+    // auto đổi ảnh, nếu đang ở ảnh cuối cùng thì quay về ảnh đầu tiên
+    setInterval(()=>{
+        const imgActive = document.querySelector(".listImg img.active");
+        const imgNext = imgActive.nextElementSibling;
+        if (imgNext) {
+            imgActive.classList.remove("active");
+            imgNext.classList.add("active");
+            main.src = imgNext.src;
+        } else {
+            const imgActive = document.querySelector(".listImg img.active");
+            const imgFirst = imgActive.parentElement.firstElementChild;
+            
+            imgActive.classList.remove("active");
+            imgFirst.classList.add("active");
+            main.src = imgFirst.src;
+        }
+        }, 1500)
+  </script>
+</html>

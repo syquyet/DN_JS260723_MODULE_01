@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body >
+    <header>
+      <h1>Session 19 DOM & event</h1>
+    </header>
+    <style>
+      div {
+        background-color: rgb(249, 245, 245);
+        width: 80%;
+        margin: 0 auto;
+      }
+      div  {
+        display: flex;
+        justify-content: space-between;
+       
+      }
+
+      img {
+        position: relative;
+      }
+      #btn-x{
+        border: hidden;
+      }
+    </style>
+    <main>
+      <section class="bt-text-01">
+        <h2>this is test</h2>
+        <button onclick="hide()">hide text</button>
+        <button onclick="show()">show text</button>
+      </section>
+
+      <section>
+        <h1>vẽ hình chủ nhật</h1>
+        <button onclick="bt_01()">click</button>
+        <div id="rectangle"></div>
+      </section>
+      <fieldset>
+        <legend>bài tập</legend>
+
+        <h3>di chuyển doremon</h3>
+        <img
+          src="https://res.cloudinary.com/locobee-cdn/image/upload/v1548641354/doraemon_ghaj08.jpg"
+          alt=""
+          width="100"
+          id="img"
+        />
+        <!-- <button onclick="move('ArrowUp')">dưới</button>
+        <button onclick="move('ArrowDown')">trên</button>
+        <button onclick="move('ArrowLeft')">trái</button>
+        <button onclick="move('ArrowRight')">phải</button> -->
+      </fieldset>
+      <section>
+        <h1>nhấm vào click màu sắc body thay đổi</h1>
+        <button onclick="bt_01()">click</button>
+      </section>
+      <section id="body">
+        <h1>Modal example</h1>
+        <button onclick="openModal()">open modal</button>
+        <div class="modal-container"></div>
+      </section>
+      <section>
+        <h1>Tooltip</h1>
+      <p id="hover">hover over me</p>
+      </section>
+      
+
+    </main>
+  </body>
+  <script src="/script.js"></script>
+</html>

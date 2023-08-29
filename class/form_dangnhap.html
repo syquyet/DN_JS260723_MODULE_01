@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>projec_đăng nhập</title>
+
+    <style>
+      form {
+        width: 500px;
+        height: 300px;
+        border-radius: 10px;
+        border: 1px solid black;
+        margin: 50px auto;
+
+        background-color: rgb(35, 30, 30);
+      }
+      form * {
+        padding: 10px;
+        margin: 10px;
+        width: 90%;
+      }
+      form input {
+        border-radius: 10px;
+        outline: none;
+      }
+      form button {
+        width: 40%;
+        background-color: rgb(191, 88, 88);
+        margin-left: 150px;
+        border-radius: 20px;
+        border: hidden;
+      }
+      form h2 {
+        color: white;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <form>
+        <h2>Đăng nhập tài khoản</h2>
+
+        <input id="email" type="text" placeholder="Email" /><br />
+
+        <input id="password" type="password" placeholder="Mật khẩu" /><br />
+
+        <button type="submit">Đăng nhập</button>
+      </form>
+    </main>
+    <footer></footer>
+  </body>
+  <script>
+    const accounts = [];
+    const formElement = document.querySelector("form");
+    const emailElement = document.querySelector("#email");
+    const passwordElement = document.querySelector("#password");
+    formElement.addEventListener("submit", (e) => {
+      // Chặn form get dứ liệu
+      e.preventDefault();
+      const email = emailElement.value;
+      const password = passwordElement.value;
+      console.log(email);
+      const validRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+      if (!email.match(validRegex)) {
+      return  alert("nhap lai email");
+      }
+      if (password == "") {
+      return  alert("nhập mật khẩu");
+      }
+      const newUser = {
+        email: email,
+      };
+      console.log(newUser);
+      let isExist = false;
+      for (const user of accounts) {
+        if (user.email === email) {
+          alert("nhập lại email");
+          isExist = true;
+          console.log(isExist);
+        }
+      }
+      if (!isExist) {
+        accounts.push(newUser);
+        alert("đăng nhập thành công!!!!!!");
+      }
+      console.log(accounts);
+      emailElement.value="";
+      passwordElement.value="";
+    });
+  </script>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>projec_đăng ký</title>
+
+    <style>
+      form {
+        width: 500px;
+        height: 500px;
+        border-radius: 10px;
+        border: 1px solid black;
+        margin: 50px auto;
+
+        background-color: rgb(35, 30, 30);
+      }
+      form * {
+        padding: 10px;
+        margin: 10px;
+        width: 90%;
+      }
+      form input {
+        border-radius: 10px;
+        outline: none;
+      }
+      form button {
+        width: 40%;
+        background-color: rgb(191, 88, 88);
+        margin-left: 150px;
+        border-radius: 20px;
+        border: hidden;
+      }
+      form h2 {
+        color: white;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <!-- <section class="banner"> -->
+      <!-- <img src="/image/anh trên banner.jpg" alt=""> -->
+      <!-- </section> -->
+      <form>
+        <h2>Đăng ký thành viên</h2>
+
+        <input id="input-firstname" type="text" placeholder="Họ" /><br />
+
+        <input id="input-lastname" type="text" placeholder="Tên" /><br />
+
+        <input id="email" type="text" placeholder="Email" /><br />
+
+        <input id="password" type="password" placeholder="Mật khẩu" /><br />
+
+        <input
+          id="confirm-password"
+          type="password"
+          placeholder="Nhập lại mật khẩu"
+        /><br />
+        <button type="submit">Đăng ký</button>
+      </form>
+    </main>
+    <footer></footer>
+  </body>
+  <script>
+    // const accounts = [];
+    const formElement = document.querySelector("form");
+    const firstnameElement = document.querySelector("#input-firstname");
+    const lastnameElement = document.querySelector("#input-lastname");
+
+    const emailElement = document.querySelector("#email");
+    const passwordElement = document.querySelector("#password");
+    const repeatPasswordElement = document.querySelector("#confirm-password");
+
+    formElement.addEventListener("submit", (e) => {
+      // Chặn action của e
+      e.preventDefault();
+      const firstname = firstnameElement.value;
+      const lastname = lastnameElement.value;
+      const email = emailElement.value.toLowerCase();
+      const password = passwordElement.value;
+      const repeatPassword = repeatPasswordElement.value;
+      //   Check validator
+      if (firstname === "") {
+        return alert("họ ko đc để trống");
+      }
+      if (lastname === "") {
+        return alert("tên ko đc để trống");
+      }
+      if (password !== repeatPassword) {
+        return alert("Vui lòng nhập mật khẩu trung nhau");
+      }
+      if (!password) {
+        return alert("Vui lòng điền password");
+      }
+      const validRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+      if (!email.match(validRegex)) {
+        return alert("Vui lòng nhập đúng định dạng email");
+      }
+      const newUser = {
+        firstname: firstname,
+        lastname: lastname,
+        email: email,
+        password: password,
+      };
+
+      //   Kiểm tra email có tồn tai
+      let isExist = false;
+      for (const user of dataListmember) {
+        if (user.email === email) {
+          return alert("Email đã tồn tại! Vui lòng nhập lại hoặc đăng nhập");
+          isExist = true;
+        }
+      }
+      if (!isExist) {
+        //   Sau khi kiểm tra thỏa các điều kiện
+
+        dataListmember.push(newUser);
+        alert("đăng lý thành công !!!!!!");
+      }
+      firstnameElement.value = "";
+      lastnameElement.value = "";
+      emailElement.value = "";
+      passwordElement.value = "";
+      repeatPasswordElement.value = "";
+    });
+    console.log(accounts);
+  </script>
+</html>
